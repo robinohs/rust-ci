@@ -1,5 +1,11 @@
 FROM rust:latest
 
+# Update container
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y build-essential curl make libssl-dev pkg-config zip
+
+
 # Rust Toolchain
 RUN rustup toolchain install "stable"
 RUN rustup toolchain install "beta"
@@ -17,4 +23,3 @@ RUN cargo install cargo-udeps
 RUN cargo install cargo-pants
 RUN cargo install cargo-audit
 RUN cargo install cargo-tarpaulin
-
