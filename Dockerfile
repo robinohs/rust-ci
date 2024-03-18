@@ -23,3 +23,6 @@ RUN cargo install cargo-udeps
 RUN cargo install cargo-pants
 RUN cargo install cargo-audit
 RUN cargo install cargo-tarpaulin
+
+# Rustbook
+RUN cargo install mdbook --no-default-features --features search --vers "^0.4" --locked
