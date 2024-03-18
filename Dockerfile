@@ -27,10 +27,10 @@ RUN cargo install --locked cargo-tarpaulin
 
 # Rustbook
 RUN cargo install --locked mdbook --no-default-features --features search --vers "^0.4"
-RUN cargo install --locked mdbook-mermaid
-RUN cargo install --locked mdbook-graphviz
+RUN cargo install --locked mdbook-mermaid --vers "^0.13"
+RUN cargo install --locked mdbook-graphviz --vers "^0.1"
 RUN cargo install --locked mdbook-quiz --vers "^0.3"
-RUN cargo install --locked mdbook-linkcheck
-RUN cargo install --locked mdbook-admonish
-RUN cargo install --locked mdbook-toc
-RUN cargo install --locked mdbook-katex
+RUN cargo install --locked mdbook-linkcheck --vers "^0.7"
+RUN cargo install --locked mdbook-admonish --vers "^1.15"
+RUN cargo install --locked mdbook-toc --vers "^0.14"
+RUN cargo install --locked mdbook-katex --vers "^0.7"
