@@ -25,4 +25,8 @@ RUN cargo install cargo-audit
 RUN cargo install cargo-tarpaulin
 
 # Rustbook
-RUN cargo install mdbook --no-default-features --features search --vers "^0.4" --locked
+RUN  cargo install mdbook --no-default-features --features search --vers "^0.4" --locked
+RUN  cargo install mdbook-linkcheck
+RUN  cargo install mdbook-admonish
+RUN  cargo install mdbook-toc
+RUN  cargo install mdbook-katex
