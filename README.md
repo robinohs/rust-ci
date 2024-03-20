@@ -29,7 +29,6 @@ mdBook and installed mdbook extensions:
 - [mdbook](https://github.com/rust-lang/mdBook)
 - [mdbook-mermaid](https://github.com/badboy/mdbook-mermaid)
 - [mdbook-graphviz](https://github.com/dylanowen/mdbook-graphviz)
-- [mdbook-quiz](https://github.com/cognitive-engineering-lab/mdbook-quiz)
 - [mdbook-linkcheck](https://github.com/Michael-F-Bryan/mdbook-linkcheck)
 - [mdbook-admonish](https://github.com/tommilligan/mdbook-admonish)
 - [mdbook-toc](https://github.com/badboy/mdbook-toc)
