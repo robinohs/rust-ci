@@ -41,4 +41,4 @@ RUN cargo binstall --no-confirm cargo-cache
 RUN cargo cache -e
 RUN apt-get clean
 
-ENTRYPOINT [ "/bin/sh" ]
+ENTRYPOINT [ "/bin/bash", "-l", "-c" ]
