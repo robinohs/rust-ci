@@ -1,7 +1,7 @@
 
 # Rust-CI
 
-This image was created for use in Continuous Integration of Rust projects or mdbooks.
+This image was created for use in CI/CD of Rust projects or mdbooks.
 
 Installed Rust toolchains:
 
