@@ -1,4 +1,4 @@
-FROM rust:latest
+FROM rust:slim-bookworm
 
 # Update container
 RUN apt-get update
@@ -6,10 +6,10 @@ RUN apt-get upgrade -y
 RUN apt-get install -y build-essential curl make libssl-dev pkg-config zip libclang-dev wget tar graphviz
 
 # Rust Toolchain
-RUN rustup toolchain install "stable"
-RUN rustup toolchain install "beta"
-RUN rustup toolchain install "nightly"
-RUN rustup default "stable"
+# RUN rustup toolchain install "stable"
+# RUN rustup toolchain install "beta"
+# RUN rustup toolchain install "nightly"
+# RUN rustup default "stable"
 
 # Rust Tools
 RUN rustup component add clippy
@@ -37,8 +37,9 @@ RUN cargo binstall --no-confirm mdbook-toc
 RUN cargo binstall --no-confirm mdbook-katex
 
 # Clear caches / Minimize image size
-RUN cargo binstall --no-confirm cargo-cache
-RUN cargo cache -e
+RUN cargo binstall --no-confirm du-dust
+RUN mv $CARGO_HOME/bin/* /bin
+RUN rm -rfv $CARGO_HOME
 RUN apt-get clean
 
-ENTRYPOINT [ "/bin/bash", "-l", "-c" ]
+# ENTRYPOINT [ "/bin/bash", "-l", "-c" ]
