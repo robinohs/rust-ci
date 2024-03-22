@@ -14,26 +14,23 @@ ENV PATH="root/.cargo/bin:${PATH}"
 RUN rustup component add clippy
 RUN rustup component add rustfmt
 
-# Cargo binstall
-RUN curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
-
 # Cargo binaries
-RUN cargo binstall --no-confirm cargo-spellcheck
-RUN cargo binstall --no-confirm cargo-about
-RUN cargo binstall --no-confirm cargo-outdated
-RUN cargo binstall --no-confirm cargo-udeps
-RUN cargo binstall --no-confirm cargo-pants
-RUN cargo binstall --no-confirm cargo-audit
-RUN cargo binstall --no-confirm cargo-tarpaulin
+RUN cargo install cargo-spellcheck
+RUN cargo install cargo-about
+RUN cargo install cargo-outdated
+RUN cargo install cargo-udeps
+RUN cargo install cargo-pants
+RUN cargo install cargo-audit
+RUN cargo install cargo-tarpaulin
 
 # Rustbook
-RUN cargo binstall --no-confirm mdbook
-RUN cargo binstall --no-confirm mdbook-mermaid
-RUN cargo binstall --no-confirm mdbook-graphviz
-RUN cargo binstall --no-confirm mdbook-linkcheck
-RUN cargo binstall --no-confirm mdbook-admonish
-RUN cargo binstall --no-confirm mdbook-toc
-RUN cargo binstall --no-confirm mdbook-katex
+RUN cargo install mdbook
+RUN cargo install mdbook-mermaid
+RUN cargo install mdbook-graphviz
+RUN cargo install mdbook-linkcheck
+RUN cargo install mdbook-admonish
+RUN cargo install mdbook-toc
+RUN cargo install mdbook-katex
 
 # Clear caches / Minimize image size
 RUN mv /root/.cargo/bin/* /bin
