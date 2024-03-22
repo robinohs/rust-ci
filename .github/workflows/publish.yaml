@@ -44,4 +44,4 @@ jobs:
           context: .
           file: ${{ matrix.dockerfile }}
           push: true
-          tags: ghcr.io/rust-ci:${{ matrix.tag }}
+          tags: rust-ci:${{ matrix.tag }}
