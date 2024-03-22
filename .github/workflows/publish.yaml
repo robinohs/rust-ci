@@ -2,7 +2,7 @@ name: Publish Docker image
 
 on:
   push:
-    branches: ['release']
+    branches: ["release"]
 
 env:
   REGISTRY: ghcr.io
@@ -11,6 +11,14 @@ env:
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - tag: stable
+            dockerfile: Dockerfile.Stable
+          - tag: nightly
+            dockerfile: Dockerfile.Nightly
 
     permissions:
       contents: read
@@ -37,6 +45,7 @@ jobs:
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
           context: .
+          file: ${{ matrix.dockerfile }}
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ matrix.tag }}
           labels: ${{ steps.meta.outputs.labels }}
