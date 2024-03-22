@@ -11,14 +11,6 @@ env:
 jobs:
   build-and-push-image:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - tag: stable
-            dockerfile: Dockerfile.Stable
-          - tag: nightly
-            dockerfile: Dockerfile.Nightly
 
     permissions:
       contents: read
@@ -41,15 +33,11 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      - name: test
-        run: ${{ steps.meta.outputs.tags }}
-
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ${{ matrix.dockerfile }}
+          file: Dockerfile.Stable
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
