@@ -26,7 +26,6 @@ RUN cargo install cargo-tarpaulin
 # Rustbook
 RUN cargo install mdbook
 RUN cargo install mdbook-mermaid
-RUN cargo install mdbook-graphviz
 RUN cargo install mdbook-linkcheck
 RUN cargo install mdbook-admonish
 RUN cargo install mdbook-toc
