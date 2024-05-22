@@ -3,6 +3,7 @@ name: Publish Docker image
 on:
   push:
     branches: ['nightly']
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
