@@ -26,10 +26,10 @@ RUN cargo install cargo-tarpaulin
 # Rustbook
 RUN cargo install mdbook
 RUN cargo install mdbook-mermaid
-RUN cargo install mdbook-linkcheck
 RUN cargo install mdbook-admonish
 RUN cargo install mdbook-toc
 RUN cargo install mdbook-katex
+RUN cargo install mdbook-bib
 
 # Clear caches / Minimize image size
 RUN mv /root/.cargo/bin/* /bin
